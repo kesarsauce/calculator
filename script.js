@@ -82,6 +82,8 @@ enteredNums=[];
 selectedOperator=''
 numStoreVar = 'firstNum';
 
+let screenVal = '';
+
 loadNumpad();
 
 numBtns = document.querySelectorAll('.num');
@@ -91,7 +93,10 @@ for(num of numBtns){
 
 function selectNum(e){
     console.log(e.target.id);
-    window[numStoreVar] += e.target.textContent;
+    if(screen.textContent.length===10){
+        return
+    }
     screen.textContent += e.target.textContent;
+    screenVal = screen.textContent;
 }
 loadOperatorEventLst();
