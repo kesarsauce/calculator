@@ -84,7 +84,7 @@ function operate(num1, num2, operator){
             return num1*num2;
         }
         case '/':{
-            let decimalWidth = 10-parseInt(num1/num2).toString().length;
+            let decimalWidth = 8-parseInt(num1/num2).toString().length;
             return Number((num1/num2).toFixed(decimalWidth));
         }
     }
