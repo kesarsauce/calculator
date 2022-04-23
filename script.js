@@ -1,6 +1,7 @@
 let screen = document.querySelector('.screen');
 let operatorSelected = false;
 let chained = true;
+let equalsJustSelected = false;
 
 function loadNumpad(){
     nums = [7,8,9,4,5,6,1,2,3,0,'.','=']
@@ -31,6 +32,7 @@ function loadOperatorEventLst(){
     }
 
     function selectOperator(e){
+        equalsJustSelected = false;
         console.log(e.target.id);
         console.log(operatorSelected);
         if(chained){
@@ -57,7 +59,7 @@ function loadEquals(){
 
 function compute(){
     chained = false;
-    if(firstNum==='' || operatorSelected){
+    if(firstNum==='' || operatorSelected || equalsJustSelected){
         return;
     }
     secondNum = screen.textContent;
@@ -66,6 +68,7 @@ function compute(){
     secondNum = '';
     firstNum = result;
     screen.textContent = result;
+    equalsJustSelected = true;
 }
 
 function operate(num1, num2, operator){
@@ -98,6 +101,7 @@ for(num of numBtns){
 }
 
 function selectNum(e){
+    equalsJustSelected = false;
     console.log(e.target.id);
     if(operatorSelected){
         screen.textContent = '';
