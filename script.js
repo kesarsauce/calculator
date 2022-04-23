@@ -65,7 +65,7 @@ function compute(){
         return;
     }
     secondNum = screen.textContent;
-    let result = operate(firstNum, secondNum, selectedOperator);
+    let result = operate(Number(firstNum), Number(secondNum), selectedOperator);
     secondNum = '';
     firstNum = result;
     screen.textContent = result;
