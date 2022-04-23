@@ -52,7 +52,7 @@ function loadEquals(){
 }
 
 function compute(){
-    if(firstNum===''){
+    if(firstNum==='' || operatorSelected){
         return;
     }
     secondNum = screen.textContent;
