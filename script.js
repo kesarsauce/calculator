@@ -134,3 +134,12 @@ function selectNum(e){
     screen.textContent += e.target.textContent;
 }
 loadOperatorEventLst();
+
+document.addEventListener('keypress', (e)=>{
+    allBtns = document.querySelectorAll('.num,.equals,.operator');
+    for(btn of allBtns){
+        if(btn.textContent===e.key){
+            btn.click();
+        }
+    }
+})
