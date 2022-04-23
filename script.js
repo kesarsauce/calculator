@@ -48,7 +48,7 @@ function loadOperatorEventLst(){
         }
         e.target.classList.toggle('op-selected');
         selectedOperator = e.target.textContent;
-        firstNum = parseInt(screen.textContent);
+        firstNum = Number(screen.textContent);
         console.log('fnum', firstNum)
         operatorSelected = true;
         chained = true;
@@ -68,7 +68,7 @@ function compute(){
         return;
     }
     secondNum = screen.textContent;
-    let result = operate(parseInt(firstNum), parseInt(secondNum), selectedOperator);
+    let result = operate(firstNum, secondNum, selectedOperator);
     console.log(result);
     secondNum = '';
     firstNum = result;
@@ -89,7 +89,8 @@ function operate(num1, num2, operator){
             return num1*num2;
         }
         case '/':{
-            return num1/num2;
+            let decimalWidth = 10-parseInt(num1/num2).toString().length;
+            return Number((num1/num2).toFixed(decimalWidth));
         }
     }
 }
