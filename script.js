@@ -1,5 +1,6 @@
 let screen = document.querySelector('.screen');
 let operatorSelected = false;
+let chained = true;
 
 function loadNumpad(){
     nums = [7,8,9,4,5,6,1,2,3,0,'.','=']
@@ -31,8 +32,10 @@ function loadOperatorEventLst(){
 
     function selectOperator(e){
         console.log(e.target.id);
-        console.log(operatorSelected)
-        compute();
+        console.log(operatorSelected);
+        if(chained){
+            compute();
+        }
         let allOperators = document.querySelectorAll('.operator');
         for(op of allOperators){
             op.classList.remove('op-selected')
@@ -42,6 +45,7 @@ function loadOperatorEventLst(){
         firstNum = parseInt(screen.textContent);
         console.log('fnum', firstNum)
         operatorSelected = true;
+        chained = true;
     }
     loadEquals();
 }
@@ -52,6 +56,7 @@ function loadEquals(){
 }
 
 function compute(){
+    chained = false;
     if(firstNum==='' || operatorSelected){
         return;
     }
