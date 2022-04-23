@@ -66,6 +66,9 @@ function compute(){
     }
     secondNum = screen.textContent;
     let result = operate(Number(firstNum), Number(secondNum), selectedOperator);
+    if(result.toString().length>9){
+        result=NaN;
+    }
     secondNum = '';
     firstNum = result;
     screen.textContent = result;
