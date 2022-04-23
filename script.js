@@ -100,7 +100,8 @@ function deselectOperator(){
     }
 }
 
-clearBtn.addEventListener('click', ()=>{
+clearBtn.addEventListener('click', clearAll);
+function clearAll(){
     operatorSelected = false;
     chained = true;
     equalsJustSelected = false;
@@ -109,7 +110,7 @@ clearBtn.addEventListener('click', ()=>{
     selectedOperator='';
     screen.textContent='';
     deselectOperator();
-})
+}
 
 loadNumpad();
 
@@ -119,6 +120,9 @@ for(num of numBtns){
 }
 
 function selectNum(e){
+    if(equalsJustSelected){
+        clearAll();
+    }
     equalsJustSelected = false;
     if(operatorSelected){
         screen.textContent = '';
