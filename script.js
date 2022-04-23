@@ -83,9 +83,7 @@ function operate(num1, num2, operator){
 
 firstNum='';
 secondNum='';
-enteredNums=[];
 selectedOperator=''
-numStoreVar = 'firstNum';
 
 loadNumpad();
 
