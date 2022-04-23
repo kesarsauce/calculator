@@ -1,5 +1,5 @@
 let screen = document.querySelector('.screen');
-let operatorJustSelected = false;
+let operatorSelected = false;
 
 function loadNumpad(){
     nums = [7,8,9,4,5,6,1,2,3,0,'.','=']
@@ -31,16 +31,17 @@ function loadOperatorEventLst(){
 
     function selectOperator(e){
         console.log(e.target.id);
-        console.log(window[numStoreVar]);
-        numStoreVar = 'secondNum';
+        console.log(operatorSelected)
+        compute();
         let allOperators = document.querySelectorAll('.operator');
         for(op of allOperators){
-            console.log(op)
             op.classList.remove('op-selected')
         }
         e.target.classList.toggle('op-selected');
         selectedOperator = e.target.textContent;
-        operatorJustSelected = true;
+        firstNum = parseInt(screen.textContent);
+        console.log('fnum', firstNum)
+        operatorSelected = true;
     }
     loadEquals();
 }
@@ -48,14 +49,18 @@ function loadOperatorEventLst(){
 function loadEquals(){
     equalButton = document.querySelector('.equals');
     equalButton.addEventListener('click', compute)
+}
 
-    function compute(){
-        let result = operate(parseInt(firstNum), parseInt(secondNum), selectedOperator);
-        console.log(result);
-        secondNum = '';
-        firstNum = result;
-        screen.textContent = result;
+function compute(){
+    if(firstNum===''){
+        return;
     }
+    secondNum = screen.textContent;
+    let result = operate(parseInt(firstNum), parseInt(secondNum), selectedOperator);
+    console.log(result);
+    secondNum = '';
+    firstNum = result;
+    screen.textContent = result;
 }
 
 function operate(num1, num2, operator){
@@ -82,8 +87,6 @@ enteredNums=[];
 selectedOperator=''
 numStoreVar = 'firstNum';
 
-let screenVal = '';
-
 loadNumpad();
 
 numBtns = document.querySelectorAll('.num');
@@ -93,10 +96,13 @@ for(num of numBtns){
 
 function selectNum(e){
     console.log(e.target.id);
+    if(operatorSelected){
+        screen.textContent = '';
+        operatorSelected = false;
+    }
     if(screen.textContent.length===10){
         return
     }
     screen.textContent += e.target.textContent;
-    screenVal = screen.textContent;
 }
 loadOperatorEventLst();
