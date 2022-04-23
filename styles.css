@@ -1,0 +1,147 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.container {
+    width: 20%;
+    height: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2em;
+    background-color: red;
+    padding: 0.4em;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+      width: 50%;
+    }
+  }
+
+@media only screen and (max-height: 600px) {
+    .container {
+      height: 80%;
+    }
+  }
+
+.screen {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1.2em 0.2em;
+    height: 1em;
+    color: yellow;
+    font-family: 'Play', sans-serif;
+    font-size: 2.4em;
+    background-image: url(./images/screen-bg.webp);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.top-row{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.pad {
+    flex: 1;
+    display: flex;
+    gap: 0.2em;
+}
+
+.numpad {
+    display: flex;
+    flex: 1 0 75%;
+    flex-flow: row wrap;
+    gap: 0.2em;
+}
+
+.num, .equals, .dot {
+    cursor: pointer;
+    flex: 1 0 28%;
+    border: 2px solid grey;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.num {
+    background-color: hsl(55, 100%, 59%);
+    font-weight: 800;
+}
+
+.num:active {
+    background-color: #ada819;
+    transform: translateY(1px);
+  }
+.operator, .equals, .dot{
+    background-color: rgb(127, 127, 241);
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+}
+
+.dot:active, .equals:active {
+    background-color: #0a1256;
+    transform: translateY(1px);
+}
+
+#clear:active{
+    background-color: #3e082d;
+    transform: translateY(1px);
+}
+
+.op-selected{
+    background-color: rgb(5, 5, 159);
+}
+
+.operators {
+    flex: 1 0 25%;
+    align-items: stretch;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2em;
+}
+
+.operator {
+    flex: 1;
+    cursor: pointer;
+    border: 2px solid grey;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#clear {
+    flex: 0 0 24%;
+    cursor: pointer;
+    border: 2px solid grey;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(255, 32, 188);
+}
+
+#negate {
+    flex: 0 0 22%;
+    padding: 0.2em;
+    margin-right: -0.2em;
+}
