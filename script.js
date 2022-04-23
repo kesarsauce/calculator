@@ -37,8 +37,6 @@ function loadOperatorEventLst(){
 
     function selectOperator(e){
         equalsJustSelected = false;
-        console.log(e.target.id);
-        console.log(operatorSelected);
         if(chained){
             compute();
         }
@@ -49,7 +47,6 @@ function loadOperatorEventLst(){
         e.target.classList.toggle('op-selected');
         selectedOperator = e.target.textContent;
         firstNum = Number(screen.textContent);
-        console.log('fnum', firstNum)
         operatorSelected = true;
         chained = true;
     }
@@ -69,7 +66,6 @@ function compute(){
     }
     secondNum = screen.textContent;
     let result = operate(firstNum, secondNum, selectedOperator);
-    console.log(result);
     secondNum = '';
     firstNum = result;
     screen.textContent = result;
@@ -77,7 +73,6 @@ function compute(){
 }
 
 function operate(num1, num2, operator){
-    console.log(num1,num2,operator)
     switch(operator){
         case '+':{
             return num1+num2;
@@ -122,7 +117,6 @@ for(num of numBtns){
 
 function selectNum(e){
     equalsJustSelected = false;
-    console.log(e.target.id);
     if(operatorSelected){
         screen.textContent = '';
         operatorSelected = false;
