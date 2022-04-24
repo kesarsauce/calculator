@@ -9,7 +9,7 @@ body {
 
 .container {
     width: 20%;
-    height: 40%;
+    height: 60%;
     display: flex;
     flex-flow: column nowrap;
     gap: 0.2em;
@@ -20,13 +20,7 @@ body {
 
 @media only screen and (max-width: 600px) {
     .container {
-      width: 50%;
-    }
-  }
-
-@media only screen and (max-height: 600px) {
-    .container {
-      height: 80%;
+      width: 80%;
     }
   }
 
