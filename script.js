@@ -119,6 +119,14 @@ for(num of numBtns){
     num.addEventListener('click', selectNum)
 }
 
+dotOperator = document.querySelector('.dot');
+dotOperator.addEventListener('click', ()=>{
+    if(screen.textContent==='' || screen.textContent.includes('.')){
+        return;
+    }
+    screen.textContent += '.'
+})
+
 function selectNum(e){
     if(equalsJustSelected){
         clearAll();
