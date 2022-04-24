@@ -61,7 +61,6 @@ function loadEquals(){
 
 function compute(){
     deselectOperator();
-    chained = false;
     if(firstNum==='' || operatorSelected || equalsJustSelected){
         return;
     }
@@ -74,7 +73,12 @@ function compute(){
     secondNum = '';
     firstNum = result;
     screen.textContent = result;
-    equalsJustSelected = true;
+    if(!chained){
+        equalsJustSelected = true;
+    }
+    else{
+        chained = false;
+    }
 }
 
 function operate(num1, num2, operator){
@@ -152,7 +156,6 @@ loadOperatorEventLst();
 
 document.addEventListener('keydown', (e)=>{
     allBtns = document.querySelectorAll('.num,.equals,.operator,.dot');
-    console.log(e)
     if(e.key==='Backspace'){
         backspaceBtn.click();
         return;
