@@ -138,7 +138,10 @@ loadOperatorEventLst();
 document.addEventListener('keypress', (e)=>{
     allBtns = document.querySelectorAll('.num,.equals,.operator');
     for(btn of allBtns){
-        if(btn.textContent===e.key){
+        if(btn.textContent==='=' && e.key==='Enter'){
+            btn.click()
+        }
+        else if(btn.textContent===e.key){
             btn.click();
         }
     }
