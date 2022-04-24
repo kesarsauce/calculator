@@ -130,6 +130,7 @@ dotOperator.addEventListener('click', ()=>{
     if(screen.textContent==='' || screen.textContent.includes('.')){
         return;
     }
+    equalsJustSelected = false;
     screen.textContent += '.'
 })
 
