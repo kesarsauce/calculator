@@ -66,6 +66,7 @@ function compute(){
     }
     secondNum = screen.textContent;
     let result = operate(Number(firstNum), Number(secondNum), selectedOperator);
+    result = Number(result.toPrecision(10)); //to deal with javascript floating point bugs
     if(result.toString().length>9){
         result=NaN;
     }
