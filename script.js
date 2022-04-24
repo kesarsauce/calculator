@@ -1,5 +1,6 @@
 let screen = document.querySelector('.screen');
 let clearBtn = document.querySelector('#clear');
+let backspaceBtn = document.querySelector('#backspace');
 let operatorSelected = false;
 let chained = true;
 let equalsJustSelected = false;
@@ -113,6 +114,10 @@ function clearAll(){
     deselectOperator();
 }
 
+backspaceBtn.addEventListener('click', ()=>{
+    screen.textContent = screen.textContent.slice(0,-1);
+})
+
 loadNumpad();
 
 numBtns = document.querySelectorAll('.num');
@@ -144,8 +149,13 @@ function selectNum(e){
 }
 loadOperatorEventLst();
 
-document.addEventListener('keypress', (e)=>{
-    allBtns = document.querySelectorAll('.num,.equals,.operator');
+document.addEventListener('keydown', (e)=>{
+    allBtns = document.querySelectorAll('.num,.equals,.operator,.dot');
+    console.log(e)
+    if(e.key==='Backspace'){
+        backspaceBtn.click();
+        return;
+    }
     for(btn of allBtns){
         if(btn.textContent==='=' && e.key==='Enter'){
             btn.click()

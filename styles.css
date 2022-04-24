@@ -134,8 +134,11 @@ body {
     background-color: rgb(255, 32, 188);
 }
 
-#negate {
-    flex: 0 0 22%;
-    padding: 0.2em;
-    margin-right: -0.2em;
+#backspace {
+    color: yellow;
+    padding: 0.2em 0.4em;
+}
+
+#backspace:active{
+    transform: translateY(1px);
 }
